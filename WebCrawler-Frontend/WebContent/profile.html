@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cumperi-Inteligent.ro</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="js/homepage.js"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./css/user.css">
+</head>
+<body ng-app="myApp" ng-controller="homepageController">
+
+<nav class="navbar navbar-inverse" ng-if="getActiveUser()==null">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="homepage.html"><span style="color: red;">Cumperi</span>-<span style="color: red;">Inteligent</span>.<span style="color: red;">ro</span></a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="favorites.html"><span style="color: red;" >&#10084</span></a></li>
+        <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Inregistrare</a></li>
+      <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Logare</a></li>
+    </ul>
+  </div>
+</nav>
+<nav class="navbar navbar-inverse" ng-if="getActiveUser()!=null">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="homepage.html"><span style="color: red;">Cumperi</span>-<span style="color: red;">Inteligent</span>.<span style="color: red;">ro</span></a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="favorites.html"><span style="color: red;" >&#10084</span></a></li>
+      <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> {{getActiveUser().name}}</a></li>
+      <li><a ng-click="logoutFunction()" ><span class="glyphicon glyphicon-log-in"></span> Delogheaza-te</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+   
+   
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Nicolescu Ionut Lucian</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="5762.png" class="img-circle img-responsive"> </div>
+                
+                <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+                  <dl>
+                    <dt>DEPARTMENT:</dt>
+                    <dd>Administrator</dd>
+                    <dt>HIRE DATE</dt>
+                    <dd>11/12/2013</dd>
+                    <dt>DATE OF BIRTH</dt>
+                       <dd>11/12/2013</dd>
+                    <dt>GENDER</dt>
+                    <dd>Male</dd>
+                  </dl>
+                </div>-->
+                <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Data Nasterii</td>
+                        <td>08/29/1996</td>
+                      </tr>
+                   
+                         <tr>
+                             <tr>
+                        <td>Sex</td>
+                        <td>Masculin</td>
+                      </tr>
+                        <tr>
+                        <td>Adresa</td>
+                        <td>Craiova,Romania</td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td><a href="mailto:info@support.com">nicolescuionutluci@gmail.com</a></td>
+                      </tr>
+                        <td>Numar telefon</td>
+                        <td>0769558347<br><br>
+                        </td>
+                           
+                      </tr>
+                     
+                    </tbody>
+                  </table>
+                  
+                </div>
+              </div>
+            </div>
+                 <div class="panel-footer">
+                    </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+          <span class="text-muted">Platforma <span style="color: red;">Cumperi</span>-<span style="color: red;">Inteligent</span>.<span style="color: red;">ro</span> iti ofera <span style="color: red;">cele mai mici preturi</span> de pe site-urile cele mai importante de comert electronic din <span style="color: red;">Ro</span><span style="color: Gold ;">man</span><span style="color: blue;">ia</span></span>
+        </div>
+  </footer>
+    </body>
+    </html>

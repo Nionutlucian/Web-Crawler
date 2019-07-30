@@ -1,0 +1,45 @@
+	html {
+	  position: relative;
+	  min-height: 100%;
+	}
+	.footer {
+	  position: absolute;
+	  bottom: 0;
+	  width: 100%;
+	  /* Set the fixed height of the footer here */
+	  height: 40px;
+	  background-color: #f5f5f5;
+	  font-size: 18px;
+	  text-align: center;
+	  vertical-align: middle;
+	}
+
+	.footer-up {
+	  position: absolute;
+	  top: 70px;
+	  width: 100%;
+	  /* Set the fixed height of the footer here */
+	  height: 40px;
+	  background-color: #f5f5f5;
+	  font-size: 18px;
+	  text-align: center;
+		vertical-align: middle;
+		padding: 10px;
+		font-style: normal;
+	}
+
+	#sort-by{
+		top:-7px;
+	}
+	#pagination{
+		margin-left: 83%; 
+		top:-64px;
+	}
+
+	#pagination a{
+		color:black;
+	}
+
+	.col-md-4{
+		width: 25%;
+	}

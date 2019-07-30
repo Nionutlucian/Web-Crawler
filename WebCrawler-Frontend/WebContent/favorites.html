@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cumperi-Inteligent.ro</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/favpage.css">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="js/homepage.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="homepageController">
+
+<nav class="navbar navbar-inverse" ng-if="getActiveUser()==null">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="homepage.html"><span style="color: red;">Cumperi</span>-<span style="color: red;">Inteligent</span>.<span style="color: red;">ro</span></a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="favorites.html"><span style="color: red;" >&#10084</span></a></li>
+      <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Inregistrare</a></li>
+      <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Logare</a></li>
+    </ul>
+  </div>
+</nav>
+<nav class="navbar navbar-inverse" ng-if="getActiveUser()!=null">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="homepage.html"><span style="color: red;">Cumperi</span>-<span style="color: red;">Inteligent</span>.<span style="color: red;">ro</span></a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="favorites.html"><span style="color: red;" >&#10084</span></a></li>
+      <li><a href="profile.html"><span class="glyphicon glyphicon-user"></span> {{getActiveUser().name}}</a></li>
+      <li><a ng-click="logoutFunction()" ><span class="glyphicon glyphicon-log-in"></span> Delogheaza-te</a></li>
+    </ul>
+  </div>
+</nav>
+<br></br>
+
+<div ng-repeat="product in favProducts" style="border: 1px solid darkgray;width: 100%;">
+<a href="{{product.url}}"><img src="{{product.image}}"></a>
+<span style="font-size:20px">{{product.title}}</span>
+<span style="font-size:20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{product.price}} Lei</span>
+</div>
+<br></br>
+<br></br>
+
+<footer class="footer">
+      <div class="container">
+        <span class="text-muted">Platforma <span style="color: red;">Cumperi</span>-<span style="color: red;">Inteligent</span>.<span style="color: red;">ro</span> iti ofera <span style="color: red;">cele mai mici preturi</span> de pe site-urile cele mai importante de comert electronic din <span style="color: red;">Ro</span><span style="color: Gold ;">man</span><span style="color: blue;">ia</span></span>
+      </div>
+</footer>
+</body>
+</html>

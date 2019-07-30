@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cumperi-Inteligent.ro</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="js/homepage.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="homepageController">
+
+<nav class="navbar navbar-inverse" ng-if="getActiveUser()==null">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="homepage.html"><span style="color: red;">Cumperi</span>-<span style="color: red;">Inteligent</span>.<span style="color: red;">ro</span></a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="favorites.html"><span style="color: red;" >&#10084</span></a></li>
+        <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Inregistrare</a></li>
+      <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Logare</a></li>
+    </ul>
+  </div>
+</nav>
+<nav class="navbar navbar-inverse" ng-if="getActiveUser()!=null">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="homepage.html"><span style="color: red;">Cumperi</span>-<span style="color: red;">Inteligent</span>.<span style="color: red;">ro</span></a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="favorites.html"><span style="color: red;" >&#10084</span></a></li>
+      <li><a href="profile.html"><span class="glyphicon glyphicon-user"></span> {{getActiveUser().name}}</a></li>
+      <li><a ng-click="logoutFunction()" ><span class="glyphicon glyphicon-log-in"></span> Delogheaza-te</a></li>
+    </ul>
+  </div>
+</nav>
+<br></br>
+<br></br>
+<br></br>
+<div class="container">
+	<div class="row">
+        <div class="col-md-12">
+    		<h2>Spune-ne ce vrei sa cumperi si iti vom oferi <span style="color: red;">cel mai bun pret</span> pentru dorinta ta</h2>
+            <div id="custom-search-input" ng-controller="homepageController">
+                <div class="input-group col-md-12">
+                    <input type="text" class="form-control input-lg" placeholder="Cauta produse" ng-model="searchProduct"/>
+                    <span class="input-group-btn">
+                        <button  type="button" ng-click=searchFunction(searchProduct,1) class="btn btn-info btn-lg">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+                <br>
+                <br>
+                <div id="myProgress">
+                  <div id="myBar"></div>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+<style>
+  #myProgress {
+    width: 100%;
+    background-color: white;
+  }
+  
+  #myBar {
+    width: 0%;
+    height: 30px;
+    background-color: red;
+  }
+  </style>
+
+
+  <body>
+  
+  <br>
+  
+<footer class="footer">
+      <div class="container">
+        <span class="text-muted">Platforma <span style="color: red;">Cumperi</span>-<span style="color: red;">Inteligent</span>.<span style="color: red;">ro</span> iti ofera <span style="color: red;">cele mai mici preturi</span> de pe site-urile cele mai importante de comert electronic din <span style="color: red;">Ro</span><span style="color: Gold ;">man</span><span style="color: blue;">ia</span></span>
+      </div>
+</footer>
+</body>
+</html>

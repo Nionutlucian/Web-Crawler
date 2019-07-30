@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Cumperi-Inteligent.ro</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/homepage.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="homepageController">
+    <nav class="navbar navbar-inverse" ng-if="getActiveUser()==null">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="homepage.html"><span style="color: red;">Cumperi</span>-<span style="color: red;">Inteligent</span>.<span
+                        style="color: red;">ro</span></a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="favorites.html"><span style="color: red;" >&#10084</span></a></li>
+                <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Inregistrare</a></li>
+                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Logare</a></li>
+            </ul>
+        </div>
+    </nav>
+    <nav class="navbar navbar-inverse" ng-if="getActiveUser()!=null">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="homepage.html"><span style="color: red;">Cumperi</span>-<span style="color: red;">Inteligent</span>.<span
+                        style="color: red;">ro</span></a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="favorites.html"><span style="color: red;" >&#10084</span></a></li>
+                <li><a href="profile.html"><span class="glyphicon glyphicon-user"></span> {{getActiveUser().name}}</a></li>
+                <li><a ng-click="logoutFunction()"><span class="glyphicon glyphicon-log-in"></span> Delogheaza-te</a></li>
+            </ul>
+        </div>
+    </nav>
+    <footer class="footer-up">
+        <div class="form-group">
+            <label for="gender1" class="col-sm-2 control-label">Ordoneaza dupa:</label>
+            <div class="col-sm-2" id="sort-by">
+                <select class="form-control" id="gender1">
+                    <option>Relevanta</option>
+                    <option>Pret crescator</option>
+                    <option>Pret descrescator</option>
+                    <option>Nume</option>
+                </select>
+            </div>
+            <label for="gender1" class="col-sm-2 control-label" id="pagination">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" ng-click="decreaseFunction()" aria-label="Previous">
+                                <span aria-hidden="true"  >&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        <li ng-repeat="x in paginationArray" class="page-item"><a class="page-link" href="#" ng-click="searchFunction(searchedProduct,x)">{{x}}</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next" ng-click="increaseFunction()">
+                                <span aria-hidden="true" >&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </label>
+        </div>
+        </div>
+    </footer>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div ng-repeat="product in products" class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <h4 class="text-center"><span class="label label-info">{{product.provider}}</span></h4>
+                        <a href={{product.url}}>
+                        <img src={{product.image}} class="img-responsive"></img>
+                        </a>
+                        <div class="caption">
+                            <div class="row">
+                                <div class="col-md-6 col-xs-6">
+                                    <h3 style="color:red">De la</h3>
+                                </div>
+                                <div class="col-md-6 col-xs-6 price">
+                                    <h3>
+                                        <label id="pret">{{product.price}} lei</label></h3>
+                                </div>
+                            </div>
+                            <p style="font-size: 12px !important;" >{{product.title}}</p>
+                            <div class="row">
+                                <div class="col-md-6" ng-click="addToFavorite(product.image,product.url,product.price,product.title)">
+                                    <a class="btn btn-primary btn-product"><span class="glyphicon glyphicon-thumbs-up"></span>
+                                        Favorit</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span>
+                                        Cumpara</a></div>
+                            </div>
+
+                            <p> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Platforma <span style="color: red;">Cumperi</span>-<span style="color: red;">Inteligent</span>.<span
+                    style="color: red;">ro</span> iti ofera <span style="color: red;">cele mai mici preturi</span> de
+                pe site-urile cele mai importante de comert electronic din <span style="color: red;">Ro</span><span
+                    style="color: Gold ;">man</span><span style="color: blue;">ia</span></span>
+        </div>
+    </footer>
+</body>
+
+</html>
